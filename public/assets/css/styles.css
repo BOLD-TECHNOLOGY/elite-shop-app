@@ -1,0 +1,117 @@
+/* VendorLayout.css */
+.vendor-sidebar {
+    margin-top: -1.6rem;
+    background: #001529;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    z-index: 100;
+}
+
+.sidebar-header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.collapsed-logo {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.sidebar-collapse-btn {
+    color: white !important;
+    font-size: 16px;
+}
+
+.vendor-content {
+    transition: margin-left 0.2s;
+}
+
+.vendor-sidebar ~ .ant-layout .vendor-content {
+  margin-left: 250px;
+}
+
+.vendor-sidebar.ant-layout-sider-collapsed ~ .ant-layout .vendor-content {
+  margin-left: 80px;
+}
+
+.content-container {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  min-height: 100%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu-btn {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .vendor-sidebar {
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .vendor-sidebar ~ .ant-layout .vendor-content {
+        margin-left: 0;
+    }
+    
+    .vendor-sidebar.ant-layout-sider-collapsed ~ .ant-layout .vendor-content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+  .vendor-content {
+    padding: 16px !important;
+  }
+  
+  .content-container {
+    padding: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .vendor-content {
+    padding: 12px !important;
+  }
+  
+  .content-container {
+    padding: 12px !important;
+  }
+}
+
+.vendor-menu .ant-menu-submenu-title,
+.vendor-menu .ant-menu-item {
+    display: flex;
+    align-items: center;
+}
+
+.user-dropdown {
+    padding: 0 8px;
+    transition: all 0.3s;
+}
+
+.user-dropdown:hover {
+    background: rgba(0, 0, 0, 0.025);
+}
+
+.ant-menu-item:hover {
+    color: #F55E27 !important;
+}
+
+.ant-menu-item-selected {
+    background-color: rgba(245, 108, 39, 0.1) !important;
+    color: #F56C27 !important;
+}

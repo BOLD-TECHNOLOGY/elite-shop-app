@@ -1,42 +1,392 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+::-webkit-scroll{
+    transition: 2s;
+}
+::-webkit-scrollbar-track {
+    border-radius: 30px;
+    background: #0a013f; 
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background: #015c63; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #019189; 
+}
+
+body{
+  overflow-x: hidden;
+}
+
+
+:root {
+  --sidebar-bg: #ebebeb;
+  --sidebar-text: #000000;
+  --sidebar-hover: #959ba4;
+  --sidebar-active: #f56c27;
+  --sidebar-icon: #a0aec0; 
+  --content-bg: #f7fafc; 
+  --body-bg: #ebebeb;
+  --card-bg: #ffffff; 
+  --primary-btn: #f56c27; 
+  --primary-btn-hover: #f55e27; 
+  --secondary-btn: #2d3748; 
+  --secondary-btn-hover: #1a202c; 
+  --text-primary: #1a202c; 
+  --text-secondary: #4a5568; 
+}
+
+.vendor-sidebar {
+  background-color: var(--sidebar-bg) !important;
+  border-right: 1px solid var(--sidebar-bg) !important;
+}
+
+.vendor-sidebar .sidebar-header {
+  background-color: var(--sidebar-bg) !important;
+  border-bottom: 1px solid var(--sidebar-hover) !important;
+}
+
+.vendor-sidebar .ant-menu {
+  background-color: var(--sidebar-bg) !important;
+  color: var(--sidebar-text) !important;
+}
+
+.vendor-sidebar .ant-menu-submenu-title,
+.vendor-sidebar .ant-menu-item {
+  color: var(--sidebar-text) !important;
+}
+
+.vendor-sidebar .ant-menu-item:hover,
+.vendor-sidebar .ant-menu-submenu-title:hover {
+  background-color: var(--sidebar-hover) !important;
+}
+
+.vendor-sidebar .ant-menu-item-selected {
+  background-color: rgba(245, 108, 39, 0.1) !important;
+  color: var(--sidebar-active) !important;
+}
+
+.vendor-sidebar .ant-menu-item-selected .ant-menu-title-content,
+.vendor-sidebar .ant-menu-item-selected .anticon {
+  color: var(--sidebar-active) !important;
+}
+
+.vendor-content {
+  background-color: var(--content-bg) !important;
+}
+
+.nav-bar {
+  background-color: var(--card-bg) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09) !important;
+}
+
+.ant-btn-primary {
+  background-color: var(--primary-btn) !important;
+  border-color: var(--primary-btn) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: var(--primary-btn-hover) !important;
+  border-color: var(--primary-btn-hover) !important;
+}
+
+.secondary-btn {
+  background-color: var(--secondary-btn) !important;
+  border-color: var(--secondary-btn) !important;
+  color: white !important;
+}
+
+.secondary-btn:hover {
+  background-color: var(--secondary-btn-hover) !important;
+  border-color: var(--secondary-btn-hover) !important;
+  color: white !important;
+}
+
+.ant-table {
+  background-color: var(--card-bg) !important;
+}
+
+.ant-card {
+  background-color: var(--card-bg) !important;
+}
+
+.text-primary {
+  color: var(--text-primary) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none !important;
+    }
+    .mobile-menu {
+        display: block !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .desktop-nav {
+        display: flex !important;
+    }
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+.nav-bar {
+    padding: 0 24px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-dropdown:hover {
+    background: #f5f5f5;
+    border-radius: 4px;
+}
+
+.elite-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0078D7;
+  padding: 0 20px;
+}
+
+.elite-header .logo {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cart-btn {
+  background: #00a87c !important;
+  border: none;
+}
+
+.cart-btn:hover {
+  background: #008f69 !important;
+}
+
+.ant-card {
+  border-radius: 12px;
+}
+
+.ant-card img {
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
+
+/* AUTH PAGES */
+
+/* Minimal Auth Pages Styling - Working with Ant Design */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--content-bg);
+  padding: 20px;
+}
+
+.auth-content {
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 16px rgba(26, 32, 44, 0.08),
+    0 2px 8px rgba(26, 32, 44, 0.04);
+  border: 1px solid #f0f0f0;
+}
+
+.auth-card .ant-card-body {
+  padding: 32px;
+}
+
+.card-header {
   text-align: center;
+  margin-bottom: 32px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.card-header .anticon {
+  color: var(--primary-btn);
+  margin-bottom: 16px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.card-header h2 {
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.card-header .ant-typography {
+  color: var(--text-secondary);
+}
+
+/* Custom button styling */
+.auth-form .ant-btn-primary {
+  background: var(--primary-btn);
+  border-color: var(--primary-btn);
+  height: 40px;
+  font-weight: 600;
+}
+
+.auth-form .ant-btn-primary:hover {
+  background: var(--primary-btn-hover);
+  border-color: var(--primary-btn-hover);
+}
+
+.auth-form .ant-btn-primary:focus {
+  background: var(--primary-btn-hover);
+  border-color: var(--primary-btn-hover);
+}
+
+/* Input focus colors */
+.auth-form .ant-input:focus,
+.auth-form .ant-input-focused,
+.auth-form .ant-input-password:focus,
+.auth-form .ant-input-password-focused {
+  border-color: var(--primary-btn);
+  box-shadow: 0 0 0 2px rgba(245, 108, 39, 0.2);
+}
+
+/* Links */
+.auth-link {
+  color: var(--primary-btn);
+  font-weight: 500;
+}
+
+.auth-link:hover {
+  color: var(--primary-btn-hover);
+}
+
+/* Password strength indicator */
+.password-strength {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.password-strength.weak {
+  background: #fff2f0;
+  color: #ff4d4f;
+  border: 1px solid #ffccc7;
+}
+
+.password-strength.medium {
+  background: #fff7e6;
+  color: #fa8c16;
+  border: 1px solid #ffd591;
+}
+
+.password-strength.strong {
+  background: #f6ffed;
+  color: #52c41a;
+  border: 1px solid #b7eb8f;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 16px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .auth-content {
+    max-width: 100%;
+  }
+  
+  .auth-card .ant-card-body {
+    padding: 24px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+
+
+/* NAVIGATION LAYOUT */
+
+.shop-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+  z-index: 100;
+}
+
+.shop-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.shop-nav-menu-btn {
+  display: none;
+}
+
+.shop-nav-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .shop-nav-menu {
+    display: none;
+  }
+  .shop-nav-menu-btn {
+    display: inline-block;
   }
 }
 
-.card {
-  padding: 2em;
+/* HERO */
+
+/* Hero Section Styles */
+.elite-hero {
+  width: 100%;
+  margin: 0 auto;
 }
 
-.read-the-docs {
-  color: #888;
+.hero-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-dots li button {
+  background: var(--primary-btn) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-overlay-content {
+    padding: 15px !important;
+  }
+  
+  .hero-image-placeholder {
+    height: 300px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image-placeholder {
+    height: 250px !important;
+    font-size: 18px !important;
+  }
 }
