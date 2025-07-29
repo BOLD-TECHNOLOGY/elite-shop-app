@@ -84,6 +84,24 @@ body{
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09) !important;
 }
 
+.desktop-nav {
+    display: none;
+}
+
+.mobile-menu {
+    display: block;
+}
+
+.mobile-menu .ant-btn {
+    padding: 0;
+    width: 32px;
+    height: 32px;
+}
+
+.ant-dropdown-menu {
+    min-width: 120px;
+}
+
 .ant-btn-primary {
   background-color: var(--primary-btn) !important;
   border-color: var(--primary-btn) !important;
@@ -125,10 +143,13 @@ body{
 /* Responsive styles */
 @media (max-width: 768px) {
     .desktop-nav {
-        display: none !important;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
+    
     .mobile-menu {
-        display: block !important;
+        display: none;
     }
 }
 
