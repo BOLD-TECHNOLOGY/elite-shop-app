@@ -1,28 +1,23 @@
-// api/Orders.js
 import axios from 'axios';
 
-// Create order (handles both authenticated and guest users)
-export const createOrder = async (orderData, token = null) => {
+export const createOrder = async (orderData, token) => {
+  if (!token) {
+    throw new Error("Authentication token required");
+  }
+  
   try {
-    const config = {};
-    if (token) {
-      config.headers = {
+    const response = await axios.post('/customer/orders', orderData, {
+      headers: {
         'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      };
-      const response = await axios.post('/api/customer/orders', orderData, config);
-      return response.data;
-    } else {
-      const response = await axios.post('/api/public/orders', orderData);
-      return response.data;
-    }
+        'Content-Type': 'application/json'
+      }
+    });
+    return response.data;
   } catch (error) {
-    console.error('Create order error:', error);
     throw error;
   }
 };
 
-// Get orders for authenticated customers — returns response.data (array or paginated object)
 export const getOrders = async (token) => {
   try {
     if (!token) throw new Error('Authentication token required');
@@ -32,14 +27,13 @@ export const getOrders = async (token) => {
         'Content-Type': 'application/json',
       },
     });
-    return response.data;  // returns array or paginated object depending on backend
+    return response.data;
   } catch (error) {
     console.error('Get orders error:', error);
     throw error;
   }
 };
 
-// Update order
 export const updateOrder = async (orderId, orderData, token) => {
   try {
     if (!token) throw new Error('Authentication token required');
@@ -57,7 +51,6 @@ export const updateOrder = async (orderId, orderData, token) => {
   }
 };
 
-// Delete (cancel) order
 export const deleteOrder = async (orderId, token) => {
   try {
     if (!token) throw new Error('Authentication token required');
