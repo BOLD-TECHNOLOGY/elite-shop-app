@@ -5,9 +5,9 @@ import EliteShopHero from "../../../../Components/pages/EliteShopHero.jsx";
 
 const { Content } = Layout;
 
-export default function Home() {
+export default function UserLayout() {
   return (
-    <NavigationLayout pageTitle="Home">
+    <NavigationLayout pageTitle="User">
       {/* Hero Section */}
       <div style={{ width: '100%', marginBottom: 24 }}>
         <EliteShopHero />
