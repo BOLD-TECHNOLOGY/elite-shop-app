@@ -15,7 +15,7 @@ export default function Home() {
       
       {/* Main Content */}
       <div style={{ background: '#fff', padding: 24, borderRadius: 8 }}>
-        <Outlet />
+        {/* <Outlet /> */}
       </div>
     </NavigationLayout>
   );
