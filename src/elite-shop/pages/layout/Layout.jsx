@@ -15,7 +15,9 @@ export default function AppLayout() {
     const dropdownRef = useRef(null);
 
     async function handleLogout(e) {
-        e.preventDefault();
+        if (e && typeof e.preventDefault === "function") {
+            e.preventDefault();
+        }
         
         const res = await fetch("/api/logout", {
             method: "post",
@@ -82,10 +84,7 @@ export default function AppLayout() {
                             getPopupContainer={trigger => trigger.parentNode}
                         >
                             <Space className="user-dropdown" style={{ cursor: 'pointer', padding: '0 10px' }}>
-                                <Avatar 
-                                    className="bg-primary"
-                                    size="default"
-                                >
+                                <Avatar className="bg-primary" size="default">
                                     {user.name.charAt(0).toUpperCase()}
                                 </Avatar>
                                 <Text strong>{user.name}</Text>
@@ -94,7 +93,7 @@ export default function AppLayout() {
                         </Dropdown>
                     ) : (
                         <>
-                            <div className="auth-links desktop-nav" style={{ display: 'none' }}>
+                            <div className="auth-links desktop-nav">
                                 <Button type="text">
                                     <Link to="/login">Login</Link>
                                 </Button>
@@ -108,12 +107,9 @@ export default function AppLayout() {
                                 trigger={['click']}
                                 placement="bottomRight"
                                 getPopupContainer={trigger => trigger.parentNode}
+                                className="mobile-menu"
                             >
-                                <Button 
-                                    type="text" 
-                                    icon={<MenuOutlined />}
-                                    style={{ display: 'none' }}
-                                />
+                                <Button type="text" icon={<MenuOutlined />} />
                             </Dropdown>
                         </>
                     )}
