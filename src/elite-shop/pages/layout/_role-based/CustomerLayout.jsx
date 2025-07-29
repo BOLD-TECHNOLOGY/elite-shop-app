@@ -5,7 +5,7 @@ import EliteShopHero from "../../../../Components/pages/EliteShopHero.jsx";
 
 const { Content } = Layout;
 
-export default function Home() {
+export default function CustomerLayout() {
   return (
     <NavigationLayout pageTitle="Home">
       {/* Hero Section */}
