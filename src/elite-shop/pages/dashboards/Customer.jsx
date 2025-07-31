@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 export default function Customer() {
     return (
         <CustomerLayout pageTitle="Customer Dashboard">
-            <Outlet />
+            
         </CustomerLayout>
     );
 }
